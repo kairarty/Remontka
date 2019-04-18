@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programm.controllers.RepairController">
+    <children>
+        <TableView fx:id="repairTable" cacheShape="false" editable="true" layoutX="7.0" layoutY="29.0" onContextMenuRequested="#checkDeleteMenuItem" onMouseClicked="#detectClick" prefHeight="400.0" prefWidth="974.0" style="-fx-border-color: #808080; -fx-table-cell-border-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="startRepairColumn" prefWidth="97.0" text="ПЭВМ принято &#10;в ремонт" />
+                <TableColumn fx:id="endRepairColumn" minWidth="6.399993896484375" onEditStart="#autofillColumn" prefWidth="85.0" text="Завершение &#10;ремонта" />
+                <TableColumn fx:id="osColumn" minWidth="0.0" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="Система" />
+                <TableColumn fx:id="motherboardColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="90.0" text="Материнская &#10;плата" />
+                <TableColumn fx:id="cpuColumn" minWidth="0.0" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="CPU" />
+                <TableColumn fx:id="ramColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="RAM" />
+                <TableColumn fx:id="hddColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="HDD" />
+                <TableColumn fx:id="monitorColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="Монитор" />
+                <TableColumn fx:id="bpColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="БП" />
+                <TableColumn fx:id="netCardColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="Сетевая&#10;карта" />
+                <TableColumn fx:id="printDeviceColumn" onEditCommit="#saveEnteredRepairInfo" onEditStart="#autofillColumn" prefWidth="85.0" text="Печатное&#10;устрйоство" />
+            </columns>
+         <contextMenu>
+            <ContextMenu>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#addNewRepair" text="Добавить запись" />
+                  <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#removeSelectedRepair" text="Удалить" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+        </TableView>
+    </children>
+</AnchorPane>

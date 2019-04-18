@@ -1,0 +1,29 @@
+.table-view .column-header .label {
+    -fx-text-fill: white;   /*цвет текста шапки*/
+    -fx-text-alignment: center;
+}
+
+.table-view .column-header {
+    -fx-background-color: #595959;  /*цвет фона шапки*/
+    -fx-border-color: #808080;  /*цвет границ шапки таблицы*/
+    -fx-border-width: 0 1 2 0;
+}
+
+.table-view .column-header .arrow {
+    -fx-background-color: white;
+}
+
+.table-cell {
+    -fx-text-fill: white;   /*цвет текста ячеек*/
+    -fx-alignment: center;  /*выравнивание ячеек*/
+    -fx-border-width: 0 2 0 0;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #808080;  /*цвет фона выбранного ряда*/
+    -fx-table-cell-border-color: #595959;   /*цвет фона линий выбранного ряда*/
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, #595959; /*цвет фона ячеек таблицы*/
+}

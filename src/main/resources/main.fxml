@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1424.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programm.controllers.MainController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="1424.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Файл">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showCPUList" text="Справочник процессоров" />
+                  <MenuItem mnemonicParsing="false" onAction="#generateExcel" text="Экспорт в Excel" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Помощь">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showHelp" text="Справка" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAbout" text="О программе" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TextField fx:id="searchTF" layoutX="128.0" layoutY="27.0" prefHeight="26.0" prefWidth="1342.0" promptText="Введите информацию для поиска" style="-fx-background-color: #808080; -fx-text-fill: white; -fx-cursor: pointer;" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="0.0" />
+      <TitledPane alignment="CENTER" animated="false" collapsible="false" layoutY="27.0" prefHeight="374.0" prefWidth="130.0" text="Панель навигации" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="26.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="129.0">
+               <children>
+                  <ListView fx:id="listView" layoutX="-1.0" layoutY="-1.4000000000000004" prefHeight="360.0" prefWidth="130.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.topAnchor="-11.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TableView fx:id="mainTable" cacheShape="false" editable="true" layoutX="129.0" layoutY="53.0" onMousePressed="#openRepair" prefHeight="347.0" prefWidth="1342.0" style="-fx-table-cell-border-color: #808080; -fx-border-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+        <columns>
+          <TableColumn fx:id="positionNumberColumn" prefWidth="34.0" text="№&#10;п/п" />
+          <TableColumn fx:id="podrazdelColumn" prefWidth="77.0" text="СП" />
+            <TableColumn fx:id="cabinetNumColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="48.0" text="№ ка-&#10;бинета" />
+            <TableColumn fx:id="userColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="105.60003662109375" text="Пользователь&#10;(ФИО)" />
+            <TableColumn fx:id="networkNameColumn" minWidth="0.0" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="81.5999755859375" text="Имя в &#10;сети" />
+            <TableColumn fx:id="positionColumn" prefWidth="100.00006103515625" text="Должность" />
+            <TableColumn fx:id="osColumn" prefWidth="49.5999755859375" text="ОС" />
+            <TableColumn fx:id="pcNumColumn" onEditCommit="#saveEnteredWorkplaceInfo" text="Инв. № &#10;ПЭВМ" />
+            <TableColumn fx:id="cpuColumn" prefWidth="120.0" text="CPU" />
+            <TableColumn fx:id="ramColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="35.0" text="RAM" />
+            <TableColumn fx:id="hddColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="35.0" text="HDD" />
+            <TableColumn fx:id="monitorColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="99.199951171875" text="Монитор" />
+            <TableColumn fx:id="monitorNumColumn" onEditCommit="#saveEnteredWorkplaceInfo" text="Инв. №&#10;монитора" />
+            <TableColumn fx:id="printDeviceColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="120.0" text="Печатное &#10;устройство" />
+            <TableColumn fx:id="printDeviceTypeColumn" onEditCommit="#saveEnteredWorkplaceInfo" prefWidth="65.0" text="Тип печ.&#10;устр-ва" />
+            <TableColumn fx:id="printDeviceNumColumn" onEditCommit="#saveEnteredWorkplaceInfo" text="Инв. или № &#10;печ. устр-ва" />
+            <TableColumn fx:id="repairColumn" onEditCommit="#saveEnteredWorkplaceInfo" text="Ремонт" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#addWorkplace" text="Добавить запись" />
+                  <MenuItem mnemonicParsing="false" onAction="#removeSelectedRow" text="Удалить" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>
