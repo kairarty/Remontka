@@ -39,10 +39,9 @@ public class DBMethods {
         if (dataSource == null) {
             dataSource = new SimpleDriverDataSource();
             dataSource.setDriver(new oracle.jdbc.driver.OracleDriver());
-            dataSource.setUrl("jdbc:oracle:thin:@srv-teplo-test.mts.minsk.energo.net:1521:remontka");
-            //dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:myfirstdb");
-            dataSource.setUsername("scott");
-            dataSource.setPassword("12369874");
+            dataSource.setUrl("jdbc:oracle:thin:************************");
+            dataSource.setUsername("***");
+            dataSource.setPassword("***");
         }
         if (jdbcTemplate == null) {
             jdbcTemplate = new JdbcTemplate(dataSource);
